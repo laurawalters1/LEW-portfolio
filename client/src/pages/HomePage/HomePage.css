@@ -1,20 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif&family=Space+Grotesk:wght@500&display=swap");
-
+@import url("https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css");
 .title {
   font-family: "Noto Serif", serif;
   font-weight: 400;
 }
 
 .profile-img {
-  border-radius: 50%;
-  width: 35%;
+  /* border-radius: 50%; */
+  width: 45%;
 }
 
 .profile-img:hover {
-  border: solid black 1px;
-  transition: ease 125ms;
-  width: 35%;
+  /* border: solid black 1px;
+  transition: ease 125ms; */
+  /* width: 35%; */
 }
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 .link {
   text-decoration: none;

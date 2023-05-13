@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
+// import "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

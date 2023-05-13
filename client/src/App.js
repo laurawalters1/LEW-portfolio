@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+
 import "./App.css";
 import {
   ApolloClient,
@@ -21,6 +22,7 @@ import {
 import Navbar from "./components/Navbar/Navbar";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 // http link
 const httpLink = createHttpLink({
@@ -59,6 +61,7 @@ function App() {
               <Route path="/blog" element={<BlogPage />}></Route>
               <Route path="/projects" element={<ProjectsPage />}></Route>
             </Routes>
+            {/* <Sidebar></Sidebar> */}
           </div>
         </Router>
       </LoggedInUserProvider>

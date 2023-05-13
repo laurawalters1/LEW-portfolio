@@ -2,7 +2,7 @@ import React from "react";
 import "./Navbar.css";
 export default function Navbar() {
   return (
-    <div className="div">
+    <div className="div sticky-top bg-white">
       <navbar className="nav">
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
