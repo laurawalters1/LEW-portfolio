@@ -6,30 +6,63 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import Auth from "./utils/auth";
+import LoggedInUserProvider from "./context/LoggedInUserProvider";
+import HomePage from "./pages/HomePage/HomePage";
+import "react-bootstrap";
+// router
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  HashRouter,
+} from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import BlogPage from "./pages/BlogPage/BlogPage";
+import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 
 // http link
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
+// auth link
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem("id_token");
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      // we are setting the header on every network request that we make to have the auth token that is available
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+// new apollo client
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <LoggedInUserProvider>
+        <Router>
+          <div className="content position-absolute top-0 h-100 w-100">
+            <Navbar></Navbar>
+            <Routes>
+              <Route path="/" element={<HomePage />}></Route>
+              <Route path="/blog" element={<BlogPage />}></Route>
+              <Route path="/projects" element={<ProjectsPage />}></Route>
+            </Routes>
+          </div>
+        </Router>
+      </LoggedInUserProvider>
+    </ApolloProvider>
   );
 }
 

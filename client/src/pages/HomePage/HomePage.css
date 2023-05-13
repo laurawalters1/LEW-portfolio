@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif&family=Space+Grotesk:wght@500&display=swap");
+
+.title {
+  font-family: "Noto Serif", serif;
+  font-weight: 400;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 35%;
+}
+
+.profile-img:hover {
+  border: solid black 1px;
+  transition: ease 125ms;
+  width: 35%;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  scale: 1.05 !important;
+  transition: ease 125ms !important;
+  cursor: pointer;
+}
+
+.top-section {
+  height: 100vh;
+}
