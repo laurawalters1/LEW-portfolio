@@ -1,0 +1,11 @@
+.image-div {
+  width: 75%;
+}
+
+.link {
+  color: #f197c4;
+}
+
+.link:hover {
+  color: #eb73af;
+}

@@ -38,7 +38,7 @@ export default function HomePage() {
             className="employment-history-link link "
           >
             <div className="d-flex flex-column align-items-center">
-              <div>Employment History</div>
+              <div className="a">Employment History</div>
               <div>
                 <i class="bi bi-arrow-bar-down text-dark fs-2"></i>
               </div>

@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
-
+// 1. import `ChakraProvider` component
+import { ChakraProvider } from "@chakra-ui/react";
 import "./App.css";
 import {
   ApolloClient,
@@ -23,10 +24,11 @@ import Navbar from "./components/Navbar/Navbar";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import Sidebar from "./components/Sidebar/Sidebar";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 // http link
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 // auth link
@@ -53,17 +55,20 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <LoggedInUserProvider>
-        <Router>
-          <div className="content position-absolute top-0 h-100 w-100">
-            <Navbar></Navbar>
-            <Routes>
-              <Route path="/" element={<HomePage />}></Route>
-              <Route path="/blog" element={<BlogPage />}></Route>
-              <Route path="/projects" element={<ProjectsPage />}></Route>
-            </Routes>
-            {/* <Sidebar></Sidebar> */}
-          </div>
-        </Router>
+        <ChakraProvider>
+          <Router>
+            <div className="content position-absolute top-0 h-100 w-100">
+              <Navbar></Navbar>
+              <Routes>
+                <Route path="/" element={<HomePage />}></Route>
+                <Route path="/blog" element={<BlogPage />}></Route>
+                <Route path="/projects" element={<ProjectsPage />}></Route>
+                <Route path="/admin" element={<LoginPage />}></Route>
+              </Routes>
+              {/* <Sidebar></Sidebar> */}
+            </div>
+          </Router>
+        </ChakraProvider>
       </LoggedInUserProvider>
     </ApolloProvider>
   );

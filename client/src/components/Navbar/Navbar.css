@@ -13,13 +13,13 @@
   position: sticky;
 }
 
-a {
+.a {
   text-decoration: none !important;
   color: black !important;
   font-size: 150% !important;
 }
 
-a:hover {
+.a:hover {
   scale: 1.05;
   transition: ease 125ms;
 }

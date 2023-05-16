@@ -14,3 +14,15 @@ import { gql } from "@apollo/client";
 //     }
 //   }
 // `;
+// login user
+export const LOGIN_ADMIN_USER = gql`
+  mutation loginAdminUser($username: String!, $password: String!) {
+    loginAdminUser(username: $username, password: $password) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
