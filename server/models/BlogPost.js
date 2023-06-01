@@ -6,6 +6,7 @@ const blogPostSchema = new Schema(
   {
     title: String,
     body: String,
+    featured: Boolean,
     createdAt: {
       type: Date,
       default: Date.now,

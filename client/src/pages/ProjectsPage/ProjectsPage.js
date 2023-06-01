@@ -4,7 +4,8 @@ import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import { UserState } from "../../context/LoggedInUserProvider";
 
 export default function ProjectsPage() {
-  const { focusedProject } = UserState();
+  const { focusedProject, loggedInUser } = UserState();
+  console.log("loggedInUser: ", loggedInUser);
   return (
     <div className="w-100 p-5">
       <div className="my-5">

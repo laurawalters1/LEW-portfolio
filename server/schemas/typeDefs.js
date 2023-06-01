@@ -10,8 +10,15 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
+  type BlogPost {
+    title: String!
+    body: String!
+  }
+
   type Query {
-    me: String!
+    getMe: User!
+    getBlogPosts: [BlogPost]
   }
 
   type Mutation {
@@ -21,6 +28,7 @@ const typeDefs = gql`
       admin: Boolean!
     ): UserAuth
     loginAdminUser(username: String!, password: String!): UserAuth
+    addBlogPost(title: String!, body: String!, featured: Boolean): BlogPost
   }
 `;
 module.exports = typeDefs;

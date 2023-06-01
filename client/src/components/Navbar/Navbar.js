@@ -10,9 +10,9 @@ export default function Navbar() {
         <a className="a" href="/projects">
           Projects
         </a>
-        <a className="a" href="/blog">
+        {/* <a className="a" href="/blog">
           Blog
-        </a>
+        </a> */}
       </navbar>
     </div>
   );

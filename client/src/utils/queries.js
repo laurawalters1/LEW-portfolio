@@ -5,7 +5,6 @@ export const GET_ME = gql`
     getMe {
       _id
       username
-      email
     }
   }
 `;

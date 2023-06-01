@@ -17,7 +17,7 @@ const UserContext = createContext();
 // create chat provider
 const UserProvider = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState();
-  const [getUserData] = useLazyQuery(GET_ME);
+  const [getMe] = useLazyQuery(GET_ME);
   const [focusedProject, setFocusedProject] = useState({
     title: "Travelly",
     description:
@@ -31,7 +31,7 @@ const UserProvider = ({ children }) => {
 
   // get information regarding the logged in user
   const getUserDataFunc = async () => {
-    const { loading, data } = await getUserData();
+    const { loading, data } = await getMe();
     if (!loading) {
       setLoggedInUser(data?.getMe);
     }

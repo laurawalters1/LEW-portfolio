@@ -1,11 +1,17 @@
-const { User } = require("../models");
+const { User, BlogPost } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
-      return "hello";
+    getMe: async (parent, args, context) => {
+      const user = await User.findById(context.user._id);
+      return user;
+    },
+    getBlogPosts: async () => {
+      const blogPosts = await BlogPost.find();
+
+      return blogPosts;
     },
   },
   Mutation: {
@@ -29,6 +35,13 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+
+    addBlogPost: async (_, args) => {
+      const blogPost = await BlogPost.create(args);
+      // generate token
+
+      return blogPost;
     },
   },
 };

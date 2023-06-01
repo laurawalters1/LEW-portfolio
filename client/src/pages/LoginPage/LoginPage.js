@@ -54,22 +54,27 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
+    <div className=" p-5 d-flex flex-column justify-content-center align-items-center">
+      <form
+        className=" d-flex flex-column justify-content-around align-items-center"
+        onSubmit={handleFormSubmit}
+      >
         <input
           placeholder="username"
           value={userInput.username}
           name="username"
+          className="form-control my-2"
           onChange={handleUserInput}
         ></input>
         <input
           placeholder="password"
           value={userInput.password}
           name="password"
+          className="form-control mt-1 mb-3"
           onChange={handleUserInput}
           type="password"
         ></input>
-        <button>Submit</button>
+        <button className="btn btn-light">Submit</button>
       </form>
     </div>
   );
